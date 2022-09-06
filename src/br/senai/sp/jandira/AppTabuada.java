@@ -11,6 +11,7 @@ public class AppTabuada {
 
 	public static void main(String[] args) {
 		
+		
 		FrameTabuada tela = new FrameTabuada();
 		tela.titulo = "Tabuada";
 		tela.largura = 500;

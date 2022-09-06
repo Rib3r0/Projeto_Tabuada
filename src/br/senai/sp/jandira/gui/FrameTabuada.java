@@ -5,12 +5,14 @@ import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import br.senai.sp.jandira.model.Tabuada;
@@ -60,6 +62,27 @@ public class FrameTabuada {
 		textFieldMultiplicando.setFont(fonteTextField);
 		painel.add(textFieldMultiplicando);
 		
+		textFieldMultiplicando.addKeyListener(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
 		// Minimo Multiplicador
 		JLabel labelMinMultiplicador = new JLabel();
 		labelMinMultiplicador.setText("Minimo Multiplicador:");
@@ -94,20 +117,35 @@ public class FrameTabuada {
 		painel.add(buttonCalcularTabuada);
 		
 		
-		// Criar um botão
+		// Criar um botão limpar
 		JButton buttonLimpar = new JButton();
 		buttonLimpar.setText("Limpar");
 		buttonLimpar.setBounds(260, 250, 200, 50);
 		buttonLimpar.setBackground(corDoButton2);
 		painel.add(buttonLimpar);
 		
-		
+		buttonLimpar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				textFieldMultiplicando.setText("");
+				textFieldMaxMultiplicador.setText("");
+				textFieldMinMultiplicador.setText("");
+				
+			}
+		});
 		
 		// Criar lista de resultados
+		
 		JList<String> listResultados = new JList<String>();
-		listResultados.setBounds(20, 320, 440, 200);
+		JScrollPane scroll = new JScrollPane(listResultados);
+		
+		
+		scroll.setBounds(20, 320, 440, 200);
 		listResultados.setBackground(corDoButton1);
-		painel.add(listResultados);
+		painel.add(scroll);
+		
+
 		
 		buttonCalcularTabuada.addActionListener(new ActionListener() {
 			
@@ -122,15 +160,15 @@ public class FrameTabuada {
 				System.out.println(tabuada.maxMultiplicador);
 				System.out.println(tabuada.minMultiplicador);
 				
-				 DefaultListModel<String> resultado = new DefaultListModel<>();
+				String[] resultados = tabuada.getTabuada();
+				listResultados.setListData(resultados);
 				
-				
-				 
-				 
-				 
 			}
+			
+			
 		});
 		
+
 
 		
 		
