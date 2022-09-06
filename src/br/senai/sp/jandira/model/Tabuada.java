@@ -4,39 +4,42 @@ public class Tabuada {
 	
 	public int multiplicando,
 	minMultiplicador,
-	maxMultiplicador;
-	public String[] resultados;
+	maxMultiplicador;	
 	
-	
-	public void getTabuada() {
+	public String[] getTabuada() {
 		
-		resultados = new String[maxMultiplicador - minMultiplicador + 1];
-		int contador1 = 0;
-		int contador2 = minMultiplicador;
-		while(contador2 <= maxMultiplicador) {
-			
-			resultados[contador1] = multiplicando + " X " + contador2 + " = " + multiplicando * contador2; 
-			contador1++;
-			contador2++;
-			
-		}
-		
-	}
-	
-	public void getResultado() {
-		
-		int contador1 = 0;
-		int contador2 = minMultiplicador;
-		while(contador2 <= maxMultiplicador) {
-			
-			System.out.println(resultados[contador1]);
-			
-			++contador2;
-			++contador1;
-		}
-		
-		
-	}
-	
+		int tamanho = maxMultiplicador - minMultiplicador + 1;
+		String[] resultados = new String[tamanho];
+		int contador = 0;
 
+		while(minMultiplicador <= maxMultiplicador) {
+			
+			int produto = multiplicando * minMultiplicador;
+			resultados[contador] = multiplicando + " X " + minMultiplicador + " = " + produto; 
+			contador++;
+			minMultiplicador++;
+			
+		}
+		
+		return resultados;
+		
+	}
 }
+	
+//	public void getResultado() {
+//		
+//		int contador1 = 0;
+//		int contador2 = minMultiplicador;
+//		while(contador2 <= maxMultiplicador) {
+//			
+//			System.out.println(resultados[contador1]);
+//			
+//			++contador2;
+//			++contador1;
+//		}
+//		
+//		
+//	}
+//	
+//
+//}

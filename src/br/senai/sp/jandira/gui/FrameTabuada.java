@@ -3,9 +3,17 @@ package br.senai.sp.jandira.gui;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JTextField;
+
+import br.senai.sp.jandira.model.Tabuada;
 
 public class FrameTabuada {
 	
@@ -14,7 +22,8 @@ public class FrameTabuada {
 	public int altura;
 	public Color corDeFundo;
 	public Font fontesDosLabels;
-	public Color corDoButton;
+	public Color corDoButton1;
+	public Color corDoButton2;
 	public Font fonteTextField;
 	
 	public void criarTela() {
@@ -33,19 +42,96 @@ public class FrameTabuada {
 		// Titulo
 		JLabel labelTitulo = new JLabel();
 		labelTitulo.setText("Tabuada 1.0");
-		labelTitulo.setBounds(30, 30, 250, 80);
+		labelTitulo.setBounds(10, 0, 250, 80);
 		painel.add(labelTitulo);
 		labelTitulo.setFont(new Font("Bahnschrift", Font.BOLD, 20));
 		labelTitulo.setForeground(new Color(255, 0, 0));
 
+		// Multiplicando
+		JLabel labelMultiplicando = new JLabel();
+		labelMultiplicando.setText("Multiplicando:");
+		labelMultiplicando.setBounds(141, 100, 300, 30);
+		labelMultiplicando.setFont(fontesDosLabels);
+		painel.add(labelMultiplicando);
+		
+
+		JTextField textFieldMultiplicando = new JTextField();
+		textFieldMultiplicando.setBounds(290, 100, 170, 40);
+		textFieldMultiplicando.setFont(fonteTextField);
+		painel.add(textFieldMultiplicando);
+		
+		// Minimo Multiplicador
+		JLabel labelMinMultiplicador = new JLabel();
+		labelMinMultiplicador.setText("Minimo Multiplicador:");
+		labelMinMultiplicador.setBounds(66, 150, 300, 30);
+		labelMinMultiplicador.setFont(fontesDosLabels);
+		painel.add(labelMinMultiplicador);
+		
+		
+		JTextField textFieldMinMultiplicador = new JTextField();
+		textFieldMinMultiplicador.setBounds(290, 150, 170, 40);
+		textFieldMinMultiplicador.setFont(fonteTextField);
+		painel.add(textFieldMinMultiplicador);
+		
+		// Maximo Multiplicador
+		JLabel labelMaxMultiplicador = new JLabel();
+		labelMaxMultiplicador.setText("Maximo Multiplicador:");
+		labelMaxMultiplicador.setBounds(60, 200, 300, 30);
+		labelMaxMultiplicador.setFont(fontesDosLabels);
+		painel.add(labelMaxMultiplicador);
+		
+		
+		JTextField textFieldMaxMultiplicador = new JTextField();
+		textFieldMaxMultiplicador.setBounds(290, 200, 170, 40);
+		textFieldMaxMultiplicador.setFont(fonteTextField);
+		painel.add(textFieldMaxMultiplicador);
+		
+		// Criar um botão calcular
+		JButton buttonCalcularTabuada = new JButton();
+		buttonCalcularTabuada.setText("Calcular");
+		buttonCalcularTabuada.setBounds(20, 250, 230, 50);
+		buttonCalcularTabuada.setBackground(corDoButton1);
+		painel.add(buttonCalcularTabuada);
+		
+		
+		// Criar um botão
+		JButton buttonLimpar = new JButton();
+		buttonLimpar.setText("Limpar");
+		buttonLimpar.setBounds(260, 250, 200, 50);
+		buttonLimpar.setBackground(corDoButton2);
+		painel.add(buttonLimpar);
 		
 		
 		
+		// Criar lista de resultados
+		JList<String> listResultados = new JList<String>();
+		listResultados.setBounds(20, 320, 440, 200);
+		listResultados.setBackground(corDoButton1);
+		painel.add(listResultados);
 		
+		buttonCalcularTabuada.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Tabuada tabuada = new Tabuada();
+				tabuada.multiplicando = Integer.parseInt(textFieldMultiplicando.getText());
+				tabuada.maxMultiplicador = Integer.parseInt(textFieldMaxMultiplicador.getText());
+				tabuada.minMultiplicador = Integer.parseInt(textFieldMinMultiplicador.getText());
+				
+				System.out.println(tabuada.multiplicando);
+				System.out.println(tabuada.maxMultiplicador);
+				System.out.println(tabuada.minMultiplicador);
+				
+				 DefaultListModel<String> resultado = new DefaultListModel<>();
+				
+				
+				 
+				 
+				 
+			}
+		});
 		
-		
-		
-		
+
 		
 		
 		
