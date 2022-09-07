@@ -27,6 +27,8 @@ public class FrameTabuada {
 	public Color corDoButton1;
 	public Color corDoButton2;
 	public Font fonteTextField;
+	public Color corDaCaixa;
+	public Font fontedacaixa;
 	
 	public void criarTela() {
 		
@@ -142,7 +144,8 @@ public class FrameTabuada {
 		
 		
 		scroll.setBounds(20, 320, 440, 200);
-		listResultados.setBackground(corDoButton1);
+		listResultados.setBackground(corDaCaixa);
+		listResultados.setFont(fontedacaixa);
 		painel.add(scroll);
 		
 
@@ -155,10 +158,6 @@ public class FrameTabuada {
 				tabuada.multiplicando = Integer.parseInt(textFieldMultiplicando.getText());
 				tabuada.maxMultiplicador = Integer.parseInt(textFieldMaxMultiplicador.getText());
 				tabuada.minMultiplicador = Integer.parseInt(textFieldMinMultiplicador.getText());
-				
-				System.out.println(tabuada.multiplicando);
-				System.out.println(tabuada.maxMultiplicador);
-				System.out.println(tabuada.minMultiplicador);
 				
 				String[] resultados = tabuada.getTabuada();
 				listResultados.setListData(resultados);
