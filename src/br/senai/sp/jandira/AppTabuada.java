@@ -19,7 +19,7 @@ public class AppTabuada {
 		tela.corDeFundo = new Color(250, 250, 250);
 		tela.fontesDosLabels = new Font("Comic Sans MS", Font.BOLD, 20);
 		tela.fonteTextField = new Font("BankGothic Md BT", 0, 40);
-		tela.fontedacaixa = new Font("BankGothic Md BT", 0, 30);
+		tela.fontedacaixa = new Font("Arial", 0, 30);
 		tela.corDoButton1 = new Color(0, 200, 0);
 		tela.corDoButton2 = new Color(255, 200, 0);
 		tela.corDaCaixa = new Color(250, 250, 250);
