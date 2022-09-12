@@ -1,14 +1,21 @@
 package br.senai.sp.jandira.model;
 
+import javax.swing.JOptionPane;
+
 public class Tabuada {
 	
 	public int multiplicando,
 	minMultiplicador,
-	maxMultiplicador;	
+	maxMultiplicador;
+	
+	public boolean confirm = false;
 	
 	public String[] getTabuada() {
 		
 		int tamanho = maxMultiplicador - minMultiplicador + 1;
+			
+		confirm = true;
+		
 		String[] resultados = new String[tamanho];
 		int contador = 0;
 
@@ -19,10 +26,12 @@ public class Tabuada {
 			contador++;
 			minMultiplicador++;
 			
-		}
+			}
 		
 		return resultados;
 		
+		
+
 	}
 }
 	

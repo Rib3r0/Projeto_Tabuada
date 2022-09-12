@@ -92,14 +92,19 @@ public class FrameTabuada {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				
-				;
+				
 				
 			}
 			
 			@Override
 			public void keyReleased(KeyEvent e) {
 				textFieldMultiplicando.setText(textFieldMultiplicando.getText().replaceAll( "[^0-9]" , ""));
-				
+				if(textFieldMultiplicando.getText().length() > 9) {
+					
+					JOptionPane.showMessageDialog(null, "Valor excedido","ERRO",JOptionPane.ERROR_MESSAGE);
+					textFieldMultiplicando.setText(textFieldMultiplicando.getText().replaceAll( "[0-9]" , ""));
+					
+				}
 			}
 			
 			@Override
@@ -135,7 +140,12 @@ public class FrameTabuada {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				textFieldMinMultiplicador.setText(textFieldMinMultiplicador.getText().replaceAll( "[^0-9]" , ""));
-				
+				if(textFieldMinMultiplicador.getText().length() > 9) {
+					
+					JOptionPane.showMessageDialog(null, "Valor excedido","ERRO",JOptionPane.ERROR_MESSAGE);
+					textFieldMinMultiplicador.setText(textFieldMinMultiplicador.getText().replaceAll( "[0-9]" , ""));
+					
+				}
 			}
 			
 			@Override
@@ -170,6 +180,12 @@ public class FrameTabuada {
 			@Override
 			public void keyReleased(KeyEvent e) {
 				textFieldMaxMultiplicador.setText(textFieldMaxMultiplicador.getText().replaceAll( "[^0-9]" , ""));
+				if(textFieldMaxMultiplicador.getText().length() >= 9) {
+					
+					JOptionPane.showMessageDialog(null, "Valor excedido","ERRO",JOptionPane.ERROR_MESSAGE);
+					textFieldMaxMultiplicador.setText(textFieldMaxMultiplicador.getText().replaceAll( "[0-9]" , ""));
+					
+				}
 				
 			}
 			
@@ -224,6 +240,7 @@ public class FrameTabuada {
 					JOptionPane.showMessageDialog(null, "Faltam valores","ERRO",JOptionPane.ERROR_MESSAGE);
 					
 				}else {
+					
 					tabuada.multiplicando = Integer.parseInt(textFieldMultiplicando.getText());
 					tabuada.maxMultiplicador = Integer.parseInt(textFieldMaxMultiplicador.getText());
 					tabuada.minMultiplicador = Integer.parseInt(textFieldMinMultiplicador.getText());
@@ -234,11 +251,14 @@ public class FrameTabuada {
 					
 				}else {
 					
+					
+					
 					String[] resultados = tabuada.getTabuada();
+					
 					listResultados.setListData(resultados);
 					scroll.setVisible(true);
 					
-				}
+					}
 				
 			}
 
