@@ -1,6 +1,6 @@
 package br.senai.sp.jandira.model;
 
-import javax.swing.JOptionPane;
+
 
 public class Tabuada {
 	
